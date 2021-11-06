@@ -1,20 +1,27 @@
 package br.com.letscode.spring.grupoamatividadefinal.client;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Value;
 
 @Value
-public class MusicMinimal {
+public class MusicMinimal{
 
-    String imdbId;
+    int id;
+    ArtistDetail artist;
     String title;
-    String year;
+    String image;
 
     @JsonCreator
-    public MusicMinimal(String imdbId, String title, String year) {
-        this.imdbId = imdbId;
+    public MusicMinimal(
+            @JsonProperty("id") int id,
+            @JsonProperty("artist") ArtistDetail artist,
+            @JsonProperty("title") String title,
+            @JsonProperty("md5_image") String image
+            ) {
+        this.id = id;
+        this.artist = artist;
         this.title = title;
-        this.year = year;
+        this.image = image;
     }
-
 }
