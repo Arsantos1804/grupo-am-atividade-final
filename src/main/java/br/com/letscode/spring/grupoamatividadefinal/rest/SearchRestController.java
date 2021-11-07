@@ -26,13 +26,13 @@ public class SearchRestController {
     }
 
     //http://localhos:8080/artist/{id}
-    @GetMapping("/artist/{id}")
+    @GetMapping("/artist/{id:[\\d]+}")
     public ArtistDetail artist(@PathVariable("id") String id) {
         return this.restRepository.artist(id);
     }
 
     //http://localhos:8080/track/{id}
-    @GetMapping("/track/{id}")
+    @GetMapping("/track/{id:[\\d]+}")
     public TrackDetail track(@PathVariable("id") String id) {
         return this.restRepository.track(id);
     }

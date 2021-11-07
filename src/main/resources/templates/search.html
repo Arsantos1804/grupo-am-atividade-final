@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<h1>Busca de musica: </h1>
+
+<form action="#" th:action="@{/searchMusic}">
+  <input type="text" th:name="search"/>
+  <button type="submit">search</button>
+</form>
+
+<div th:each="track : ${tracks}">
+  <ul style="border: black solid 1px">
+    <li th:text="'Nome da Musica: ' + ${track.getName()}"></li>
+    <li th:text="'Cantor: ' + ${track.getArtist().getName()}"></li>
+    <li th:text="'Duração: ' + ${track.getDuration()} + 's'"></li>
+    <img th:src="'https://e-cdns-images.dzcdn.net/images/cover/'+ ${track.getImage()} +'/56x56-000000-80-0-0.jpg'">
+    <audio controls="controls">
+      <source th:src="${track.getPreview()}" type="audio/mpeg">
+    </audio>
+  </ul>
+</div>
+
+</body>
+</html>

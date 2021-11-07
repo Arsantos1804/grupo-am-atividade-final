@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<h1>Search your favorite movies on IMDB: </h1>
+
+<form action="#" th:action="@{/searchMusic}">
+  <input type="text" th:name="search"/>
+  <button type="submit">search</button>
+</form>
+
+</body>
+</html>
