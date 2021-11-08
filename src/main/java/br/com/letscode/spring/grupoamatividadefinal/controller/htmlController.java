@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class htmlController {
 
     private final MusicMinimalRestRepository resultSearch;
 
+
     @GetMapping
     public String index() {
         return "index";
@@ -29,11 +31,29 @@ public class htmlController {
         search.ifPresent(s -> model.addAttribute("tracks", this.searchTrack(s)));
         return "search";
     }
+
     public List<TrackDetail> searchTrack(String title) {
         ResultSearch resultSearch = this.resultSearch.search(title);
         final List<TrackDetail> list = resultSearch.getResultList().stream()
                 .map(minimal -> this.resultSearch.track(String.valueOf(minimal.getId())))
                 .collect(Collectors.toList());
         return list;
+    }
+
+    @GetMapping("/cadastro")
+    public String cadastro() {
+        return "cadastro";
+    }
+
+    @RequestMapping("/login")
+    public String viewLoginPage() {
+        return "login";
+
+    }
+
+    @RequestMapping("/login-error")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        return "login";
     }
 }

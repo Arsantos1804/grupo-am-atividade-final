@@ -18,20 +18,20 @@ public class SearchRestController {
         this.restRepository = restRepository;
     }
 
-    // http://localhos:8080/search?title=
+    // http://localhost:8080/search?title=
     @GetMapping("/search")
     public ResultSearch search(@RequestParam String title) {
             ResultSearch resultSearch = this.restRepository.search(title);
             return resultSearch;
     }
 
-    //http://localhos:8080/artist/{id}
+    //http://localhost:8080/artist/{id}
     @GetMapping("/artist/{id:[\\d]+}")
     public ArtistDetail artist(@PathVariable("id") String id) {
         return this.restRepository.artist(id);
     }
 
-    //http://localhos:8080/track/{id}
+    //http://localhost:8080/track/{id}
     @GetMapping("/track/{id:[\\d]+}")
     public TrackDetail track(@PathVariable("id") String id) {
         return this.restRepository.track(id);

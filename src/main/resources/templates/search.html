@@ -1,28 +1,123 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <title>Getting Started: Serving Web Content</title>
+  <title>Ouvir música online</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
+<style rel="stylesheet">
+  body {
+    text-align: center;
+    background: linear-gradient( black, rgb(248, 38, 84), rgb(227, 161, 243));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 
-<h1>Busca de musica: </h1>
+  header{
+    float: right;
+    font-size: 20px;
+    font-family: 'Calibri Light', monospace;
+  }
+
+  a {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  h1 {
+    color: white;
+    margin-top: 200px;
+    font-size: 50px;
+    font-family: 'Calibri Light', monospace;
+  }
+
+  input {
+    width: 20%;
+    height: 30px;
+    display: inline;
+    margin: 5px auto 5px;
+    padding: 10px 15px;
+    border: 0;
+    outline: 0;
+    border-radius: 12px;
+    font-size: 16px;
+    margin-bottom: 80px;
+  }
+
+  button {
+    height: 50px;
+    display: inline;
+    margin: 5px auto 5px;
+    padding: 10px 15px;
+    border: 0;
+    outline: 0;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight:bold;
+    color: gray;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: white;
+    background-color: black;
+  }
+
+  td {
+    width: 600px;
+    list-style: none;
+    padding: 10px;
+  }
+
+  #titulos {
+    font-weight: bold;
+    color: white;
+    font-family: 'Calibri Light', monospace;
+    font-size: 20px;
+  }
+
+  #artista, #duracao, #musica {
+    color: white;
+    font-family: 'Calibri Light', monospace;
+    font-size: 20px;
+    padding: 2px;
+  }
+
+  audio {
+    border: 0;
+    outline: 0;
+  }
+
+</style>
+
+<body>
+<h1>Encontre músicas de seus artistas preferidos </h1>
 
 <form action="#" th:action="@{/searchMusic}">
-  <input type="text" th:name="search"/>
-  <button type="submit">search</button>
+  <input type="text" placeholder="Qual música você quer ouvir?" th:name="search"/>
+  <button type="submit">BUSCAR</button>
 </form>
 
 <div th:each="track : ${tracks}">
-  <ul style="border: black solid 1px">
-    <li th:text="'Nome da Musica: ' + ${track.getName()}"></li>
-    <li th:text="'Cantor: ' + ${track.getArtist().getName()}"></li>
-    <li th:text="'Duração: ' + ${track.getDuration()} + 's'"></li>
+  <table>
+    <tr id="titulos">
+      <td>Música</td>
+      <td>Artista</td>
+      <td>Duração</td>
+    </tr>
+    <tr>
+    <td id="musica" th:text=" ${track.getName()}"></td>
+    <td id="artista" th:text="${track.getArtist().getName()}"></td>
+    <td id="duracao" th:text=" ${track.getDuration()} + 's'"></td>
+      <td>
     <img th:src="'https://e-cdns-images.dzcdn.net/images/cover/'+ ${track.getImage()} +'/56x56-000000-80-0-0.jpg'">
     <audio controls="controls">
       <source th:src="${track.getPreview()}" type="audio/mpeg">
     </audio>
-  </ul>
+      </td>
+    </tr>
+  </table>
 </div>
 
 </body>

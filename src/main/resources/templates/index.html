@@ -1,16 +1,56 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <title>Getting Started: Serving Web Content</title>
+  <title>Ouvir música online</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
+<style rel="stylesheet">
+  body {text-align:center;
+    background: linear-gradient( black, rgb(248, 38, 84), rgb(227, 161, 243));
+    background-repeat: no-repeat;
+    background-attachment: fixed;}
+
+  h1 { color: white;
+    margin-top: 200px;
+    font-size: 50px;
+    font-family: 'Calibri Light', monospace;}
+
+  input { width: 20%;
+    height: 30px;
+    display: inline;
+    margin: 5px auto 5px;
+    padding: 10px 15px;
+    border: 0;
+    outline: 0;
+    border-radius: 12px;
+    font-size: 16px;}
+
+  button {
+    height: 50px;
+    display: inline;
+    margin: 5px auto 5px;
+    padding: 10px 15px;
+    border: 0;
+    outline: 0;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight:bold;
+    color: gray;
+    background-color: white;}
+
+  button:hover {
+    color: white;
+    background-color: black;}
+
+</style>
+
 <body>
 
-<h1>Search your favorite movies on IMDB: </h1>
+<h1>Encontre músicas de seus artistas preferidos </h1>
 
 <form action="#" th:action="@{/searchMusic}">
-  <input type="text" th:name="search"/>
-  <button type="submit">search</button>
+  <input type="text" placeholder="Qual música você quer ouvir?" th:name="search"/>
+  <button type="submit">BUSCAR</button>
 </form>
 
 </body>

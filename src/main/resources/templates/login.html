@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Login</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Calibri Light', monospace;
+        text-decoration: none;
+        color: White;
+
+    }
+
+    main {
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient( black, rgb(248, 38, 84), rgb(227, 161, 243));
+
+        display: flex;
+
+    }
+
+    main form {
+        margin-top: 5%;
+        width: 35%;
+        height: 75vh;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: 50px 0px 50px 32%;
+
+    }
+
+    main form .inputs-container {
+        margin-top: 10%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main form .inputs-container input {
+        width: 90%;
+        height: 45px;
+        padding: 8px 15px;
+        border: 0;
+        outline: 0;
+        border-radius: 12px;
+
+        font-size: 16px;
+        color: #312e42;
+    }
+
+    main form .password-container {
+        margin-top: 5%;
+        width: 100%;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main form .password-container i {
+        position: absolute;
+        right: 8%;
+        top: 35%;
+        color: #777;
+        cursor: pointer;
+    }
+
+    main form .password-container #eye {
+        display: none;
+    }
+
+    main form .password-infos {
+        width: 90%;
+        margin-top: 5%;
+        margin-left: 220px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    main form .password-infos a {
+        transition: 0.2s ease-in-out;
+    }
+
+    main form .password-infos a:hover {
+        color: black;
+    }
+
+    main form .banner {
+        float:left;
+    }
+
+    main form button {
+        background-color: lightyellow;
+        color: grey;
+        width: 90%;
+        height: 45px;
+        border: 0;
+        outline: 0;
+        border-radius: 12px;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+
+    main form button:hover {
+        background: black;
+        color:lightyellow;
+    }
+
+    main form footer {
+        width: 100%;
+        margin-top: 10%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main form footer hr {
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+    }
+
+    main form footer span {
+        font-weight: 400;
+        font-size: 0.9em;
+        margin-top: 5%;
+        color: white;
+    }
+
+    main form footer a {
+        font-weight: 600;
+        transition: 0.2s ease-in-out;
+        color: white;
+    }
+
+    main form footer a:hover {
+        color: black;
+    }
+</style>
+<body>
+<main>
+    <form th:action="@{/login}" method="post">
+        <h1>Login</h1>
+        <section class="inputs-container">
+            <input type="email" placeholder="E-mail">
+
+            <div class="password-container">
+                <input type="password" id="field-password" class="field-password" placeholder="Senha">
+                <i class="fas fa-eye" id="eye" onclick="showPassword()"></i>
+                <i class="fas fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
+            </div>
+        </section>
+
+        <button id="btn-login">ENTRAR</button>
+        <section class="password-infos">
+
+            <a href="#">Esqueceu sua senha?</a>
+        </section>
+
+
+        <footer>
+            <hr>
+            <span>Ainda não tem uma conta? <a href="/cadastro">Cadastre-se</a></span>
+        </footer>
+    </form>
+</main>
+
+</body>
+</html>
