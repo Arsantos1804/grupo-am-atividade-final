@@ -23,7 +23,28 @@ public class htmlController {
 
     @GetMapping
     public String index() {
-        return "index";
+        return "login";
+    }
+
+    @GetMapping("/home")
+    public String home() {
+        return "index"; }
+
+    @GetMapping("/registration")
+    public String registration() {
+        return "registration";
+    }
+
+    @RequestMapping("/login")
+    public String viewLoginPage() {
+        return "login";
+
+    }
+
+    @RequestMapping("/login-error")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        return "login";
     }
 
     @GetMapping("/searchMusic")
@@ -40,20 +61,7 @@ public class htmlController {
         return list;
     }
 
-    @GetMapping("/cadastro")
-    public String cadastro() {
-        return "cadastro";
-    }
-
-    @RequestMapping("/login")
-    public String viewLoginPage() {
-        return "login";
-
-    }
-
-    @RequestMapping("/login-error")
-    public String loginError(Model model) {
-        model.addAttribute("loginError", true);
-        return "login";
-    }
+    @GetMapping("/playlist")
+    public String playlist() {
+        return "playlist"; }
 }
