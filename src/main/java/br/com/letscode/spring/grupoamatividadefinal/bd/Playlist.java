@@ -15,7 +15,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name="PLAYLIST")
+@Table(name="PLAYLIST", schema = "Playlist")
 public class Playlist {
 
     @Id

@@ -14,7 +14,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name="CADASTRO")
+@Table(name="CADASTRO", schema = "Cadastro")
 public class Cadastro {
 
     @Id
@@ -24,7 +24,7 @@ public class Cadastro {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private String senha;
+    private String password;
     @Column(nullable = false)
     private String email;
 

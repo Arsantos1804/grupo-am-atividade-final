@@ -131,14 +131,14 @@
 </style>
 <body>
 <main>
-    <form th:action="@{/registration}" method="post">
+    <form th:action="@{/registration-ok}" method="post">
         <h1>Cadastro</h1>
         <section class="inputs-container">
-            <input type="nome" placeholder="Nome">
-            <input type="email" placeholder="E-mail">
+            <input name= "name" type="nome" placeholder="Nome">
+            <input name= "email" type="email" placeholder="E-mail">
 
             <div class="password-container">
-                <input type="password" id="field-password" class="field-password" placeholder="Senha">
+                <input name="password" type="password" id="field-password" class="field-password" placeholder="Senha">
             </div>
 
         </section>
