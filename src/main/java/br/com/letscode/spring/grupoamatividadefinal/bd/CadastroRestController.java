@@ -31,8 +31,6 @@ public class CadastroRestController {
                           HttpServletResponse response,
                           @CookieValue(value = "username", defaultValue = "logado") String username){
         Optional<Cadastro> cadastro = repository.login(email, password);
-        System.out.println("email" + email + "password" + password);
-        cadastro.ifPresent(c -> System.out.println("email" + c.getEmail() + "password" + c.getPassword()));
 
         if (cadastro.isPresent()){
             cookie.setCookie(response, username);
