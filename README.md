@@ -4,7 +4,6 @@
 Utilizamos parte de Orientação à Objetos, Spring Web, Banco de Dados para fazer o consumo da API Deezer.
 Desenvolvemos a parte html, através do Thymeleaf com as paginas de cadastro, busca de música, login, lista de músicas.
 O gerenciador de Banco de Dados utilizado foi o Postgres e as consultas podem ser realizadas através do Dbeaver, as informações que são salvas no Banco de Dados, de cadastro do usuário,(nome, e-mail, senha) que posteriormente são utilzados pelo login.
-A parte da playlist que registra as músicas favoritadas pelo usuário.
 A documentação pode ser consultada através do Swagger.
 Funcionamento:
 Após executar a aplicação o usuário pode se cadastrar através do link:
