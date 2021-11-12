@@ -1,8 +1,6 @@
 package br.com.letscode.spring.grupoamatividadefinal.bd;
 
 import javax.persistence.*;
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +13,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name="PLAYLIST", schema = "Playlist")
+@Table(name="PLAYLIST")
 public class Playlist {
 
     @Id
@@ -25,7 +23,7 @@ public class Playlist {
     @Column(nullable = false)
     private String idMusic;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cadastro_id")
     private Cadastro idCadastroPlaylist;
 }

@@ -10,6 +10,25 @@
     background-repeat: no-repeat;
     background-attachment: fixed;}
 
+  #menu {
+    margin-top: 60px;
+    margin-left: 1100px;
+    font-weight: bold;
+    font-family: 'Calibri Light', monospace;
+    font-size: 18px;
+  }
+
+  a {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  a:hover {
+    color: grey;
+  }
+
   h1 { color: white;
     margin-top: 200px;
     font-size: 50px;
@@ -45,7 +64,10 @@
 </style>
 
 <body>
-
+<header id="menu">
+  <a href="#">Favoritos</a>
+  <a href="#"  th:href="@{/delete-username}">Sair</a>
+</header>
 <h1>Encontre músicas de seus artistas preferidos </h1>
 
 <form action="#" th:action="@{/searchMusic}">

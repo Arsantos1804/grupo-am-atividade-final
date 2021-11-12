@@ -1,7 +1,6 @@
 package br.com.letscode.spring.grupoamatividadefinal.bd;
 
 import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +13,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name="CADASTRO", schema = "Cadastro")
+@Table(name="CADASTRO")
 public class Cadastro {
 
     @Id
@@ -27,5 +26,4 @@ public class Cadastro {
     private String password;
     @Column(nullable = false)
     private String email;
-
 }

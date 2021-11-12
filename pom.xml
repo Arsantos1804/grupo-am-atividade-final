@@ -11,7 +11,7 @@
     <groupId>br.com.letscode.spring</groupId>
     <artifactId>grupo-am-atividade-final</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>correcao-spring-omdb-client</name>
+    <name>grupo-am-atividade-final</name>
     <description>grupo-am-atividade-final</description>
     <properties>
         <java.version>11</java.version>

@@ -73,24 +73,20 @@
   }
 
   table{
-   width: 400px;
+    width: 400px;
     margin-left:180px;
   }
 
   td {
     list-style: none;
     padding: 30px;
-  }
 
-  .width{
-    width: 230px;
   }
-
   tr {
     padding: 5px;
   }
 
-  #titulos {
+  .titulos {
     font-weight: bold;
     color: white;
     font-family: 'Calibri Light', monospace;
@@ -133,33 +129,37 @@
 
 <div>
   <table>
-    <tr id="titulos">
-      <td class="width">Música</td>
-      <td class="width">Artista</td>
-      <td>Duração</td>
-      <td>Album</td>
-      <td>Preview</td>
-      <td>Add</td>
-    </tr>
-      <tr th:each="track : ${tracks}">
-      <td id="musica"><a th:href="'trackMusic?track='+ ${track.getId()}" th:text=" ${track.getName()}"></a></td>
-      <td id="artista" th:text="${track.getArtist().getName()}"></td>
-      <td id="duracao" th:text=" ${track.getDuration()} + 's'"></td>
-      <td>
-        <img th:src="'https://e-cdns-images.dzcdn.net/images/cover/'+ ${track.getImage()} +'/56x56-000000-80-0-0.jpg'">
+    <tr>
+      <td rowspan="7">
+        <img th:src="'https://e-cdns-images.dzcdn.net/images/cover/'+ ${track.getImage()} +'/500x500-000000-80-0-0.jpg'">
       </td>
-      <td>
+    </tr>
+    <tr>
+      <td class="titulos">Música</td>
+      <td id="musica" th:text=" ${track.getName()}"></td>
+    </tr>
+    <tr>
+      <td class="titulos">Artista</td>
+      <td id="artista" th:text="${track.getArtist().getName()}"></td>
+    </tr>
+    <tr>
+      <td class="titulos">Duração</td>
+      <td id="duracao" th:text=" ${track.getDuration()} + 's'"></td>
+    </tr>
+    <tr>
+      <td colspan="2">
         <audio controls="controls">
           <source th:src="${track.getPreview()}" type="audio/mpeg">
         </audio>
       </td>
+    </tr>
+    <tr>
       <td>
         <i class="fa fa-heart fa-2x"></i>
       </td>
-    </tr>
-    <tr>
-      <td colspan="3" align="left"><a th:href="'searchMusic?search='+ ${search} +'&index='+ ${index - 10}">Anterior</a> </td>
-      <td colspan="3" align="right"><a th:href="'searchMusic?search='+ ${search} +'&index='+ ${index + 10}">Próximo</a></td>
+      <td align="right">
+        <a href="javascript: history.go(-1)">Voltar</a>
+      </td>
     </tr>
   </table>
 </div>

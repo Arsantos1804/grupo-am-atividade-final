@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface MusicMinimalRestRepository {
 
     @GetMapping("/search")
-    ResultSearch search(@RequestParam("q") String search);
+    ResultSearch search(@RequestParam("q") String search,
+                        @RequestParam("index") int index,
+                        @RequestParam("limit") int limit);
 
     @GetMapping("/artist/{id}")
     ArtistDetail artist(@PathVariable("id") String id);

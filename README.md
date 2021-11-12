@@ -12,6 +12,8 @@ O usuário da Aplicação pode buscar a música ou artista desejado através do 
 http://localhost:8080/home
 O usuário pode ouvir a música escolhida atravé do link:
 http://localhost:8080/searchMusic?search=nomedoartistaoumusica
+ou através da página da própria busca pelo link:
+http://localhost:8080/trackMusic?track={idDaMusica}
 Ao clicar no botão sair o usuário é redirecionado para a página de login através do link:
 http://localhost:8080/login
 

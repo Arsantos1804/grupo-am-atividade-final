@@ -4,9 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
 import javax.transaction.Transactional;
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CadastroRepository extends JpaRepository<Cadastro, Integer> {
@@ -17,5 +16,5 @@ public interface CadastroRepository extends JpaRepository<Cadastro, Integer> {
     void cadastro(String name, String email, String password);
 
     @Query(value = "SELECT * FROM Cadastro where email= :email and password= :password", nativeQuery = true)
-    Cadastro login(String email, String password);
+    Optional<Cadastro> login(String email, String password);
 }
